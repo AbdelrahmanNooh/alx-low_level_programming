@@ -5,7 +5,7 @@
  *
  * Description: print alphabot in lowercase then in uppercase
  *
- * Return: Always 0 (success)
+ * Return: Always 0 (Success)
 */
 
 int main(void)
@@ -17,7 +17,7 @@ int main(void)
 	while (ch <= 'z')
 	{
 		putchar(ch);
-		ch++
+		ch++;
 	}
 
 	/*print A - Z*/
