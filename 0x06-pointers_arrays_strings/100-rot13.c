@@ -1,27 +1,26 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdio.h>
-
 /**
- * rot13 - encoder rot13
- * @s: pointer to string params
+ * rot13 - Function that encode with rot13
  *
- * Return: *s
+ * @s: String that will be encoded
+ *
+ * Return: string that was encoded
  */
-
 char *rot13(char *s)
 {
-	int i;
-	int j;
-	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
+	char a1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char a2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < 52; j++)
+		for (j = 0; a1[j] != '\0'; j++)
 		{
-			if (s[i] == data1[j])
+
+			if (s[i] == a1[j])
 			{
-				s[i] = datarot[j];
+				s[i] = a2[j];
 				break;
 			}
 		}
