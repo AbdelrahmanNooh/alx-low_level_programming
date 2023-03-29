@@ -1,19 +1,21 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
- *_strcmp - compares two strings
- *@s1: string 1
- *@s2: string 2
- *Return: interger
+ * reverse_array - Reverses the content of an array of integers.
+ * @a: The array of integers to be reversed.
+ * @n: The number of elements in the array.
+ *
  *
  */
-int _strcmp(char *s1, char *s2)
-{
-	int i;
 
-	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
+void reverse_array(int *a, int n)
+{
+	int tmp, index;
+
+	for (index = n - 1; index >= n / 2; index--)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		tmp = a[n - 1 - index];
+		a[n - 1 - index] = a[index];
+		a[index] = tmp;
 	}
-	return (0);
 }
