@@ -1,26 +1,26 @@
 #include "main.h"
 /**
- * _strcmp - compare 2 string
- * @s1:string
- * @s2:strmp
- * Return:int
- * Bwave/ Bright
+ *_strcmp - compares two strings
+ *
+ *@s1: A pointer to a character that will be changed
+ *@s2: A pointer to a character that will also be changed/modified/updated
+ **
+ * Return: dest
  */
+
 int _strcmp(char *s1, char *s2)
+
 {
-	while (((*s1 != '\0') && (*s2 != '\0')) && (*s1 == *s2))
+
+	char *str_one = s1;
+	char *str_two = s2;
+
+
+	while (*str_one != '\0' && *str_two != '\0' && *str_one == *str_two)
 	{
-		s1++;
-		s2++;
+		str_one++;
+		str_two++;
 	}
 
-	if (*s1 == *s2)
-	{
-		return (0);
-	}
-
-	else
-	{
-		return (*s1 - *s2);
-	}
+	return (*str_one - *str_two);
 }
