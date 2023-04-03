@@ -1,5 +1,4 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
  *_strstr - locates a substring
  *@haystack: string
@@ -17,10 +16,10 @@ char *_strstr(char *haystack, char *needle)
 			break;
 		}
 }
-		if (needle[con2] == '\0')
-		{
-		return (haystack + con1);
-
-
-	return (NULL);
+if (needle[con2] == '\0')
+{
+	return (haystack + con1);
+}
+}
+return (NULL);
 }
