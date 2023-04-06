@@ -2,25 +2,31 @@
 
 /**
  * _sqrt_recursion -find natural square root
- *@n: integer
- *Return: value square
+ * @n: integer
+ * @val: square root
+ * Return: int
  */
+int square(int n, int val);
 int _sqrt_recursion(int n)
 {
-	return (_sqrt2(1, n));
+return (square(n, 1));
 }
+
 /**
- *_sqrt2 - find square
- *@a: integer
- *@b: integer
- *Return: value square
+ * square - find square root
+ * @n: integer to find square root
+ * valb: square root
+ * Return: int
  */
-int _sqrt2(int a, int b)
+
+int square(int n, int val)
 {
-	if (a * a > b)
-		return (-1);
-	else if (a * a == b)
-		return (a);
-	else
-		return (_sqrt2(a += 1, b));
+
+if (val * val == n)
+	return (val);
+else if (val * val < n)
+	return (square(n, val + 1));
+else
+	return (-1);
+
 }
