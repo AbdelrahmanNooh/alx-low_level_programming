@@ -1,27 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 /**
- * main - it all starts here
- * @argc: the number of arguments
- * @argv: array of pointers to arguments
- *
- * Return: Always 0.
+ * main - adds adds positive numbers
+ * @argc: count
+ * @argv: array
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
-	int sum = 0;
-	char *c;
+	int can1, can2, numbers;
 
-	while (--argc)
+	for (can1 = 1; can1 < argc; can1++)
 	{
-		for (c = argv[argc]; *c; c++)
-
-			if (*c < '0' || *c > '9')
-				return (printf("Erorr\n"),);
-		sum += atoi(argv[argc]);
+		for (can2 = 0; argv[can1][can2] != '\0'; can2++)
+		{
+			if (!isdigit(argv[can1][can2]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		numbers = numbers + atoi(argv[can1]);
 	}
-	printf("%i\n", sum);
+	printf("%i\n", numbers);
 	return (0);
 }
