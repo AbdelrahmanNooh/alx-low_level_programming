@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+/**
+ * main - it all starts here
+ * @argc: the number of arguments
+ * @argv: array of pointers to arguments
+ *
+ * Return: Always 0.
+ */
+int main(int argc, char **argv)
+{
+	int sum = 0;
+	char *c;
+
+	while (--argc)
+	{
+		for (c = argv[argc]; *c; c++)
+
+			if (*c < '0' || *c > '9')
+				return (printf("Erorr\n"),);
+		sum += atoi(argv[argc]);
+	}
+	printf("%i\n", sum);
+	return (0);
+}
