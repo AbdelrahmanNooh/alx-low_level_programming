@@ -1,50 +1,52 @@
 #include "main.h"
-#include <stdlib.h>
+
 /**
- * argstostr - Concatenate arguments
- * @ac: number arguments
- * @av: vector arguments
- * Return: Returns NULL if ac == 0 or av == NULL
- * or NULL if failure, Returns a pointer to a new string
+ * _strlen - find length of a string
+ * @s: string
+ * Return: int
  */
-char *argstostr(int ac, char **av)
+
+
+
+int _strlen(char *s)
 {
-	int con1, con2;
-	int ini = 0, lon = 0;
-	char *strcon;
+	int size = 0;
 
-	if (ac == 0 || av == 0)
-		return (NULL);
-
-	for (con1 = 0; con1 < ac; con1++)
-		lon += _strl(av[con1]);
-
-	strcon = malloc(sizeof(char) * (lon + ac + 1));
-	if (strcon == 0)
-		return (NULL);
-
-	for (con1 = 0; con1 < ac; con1++)
-	{
-		for (con2 = 0; av[con1][con2] != '\0'; con2++)
-			strcon[ini++] = av[con1][con2];
-
-		strcon[ini++] = '\n';
-	}
-	strcon[ini++] = '\0';
-
-	return (strcon);
+	for (; s[size] != '\0'; size++)
+	;
+	return (size);
 }
 
 /**
- * _strl - Return the length of a string
- * @s: The string to check
- * Return: The length of the string
+ * *argstostr - description
+ * @ac: int
+ * @av: arguments
+ * Return: string
  */
-int _strl(char *s)
-{
-	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
+char *argstostr(int ac, char **av)
+{
+	int i = 0, nc = 0, j = 0, cmpt = 0;
+	char *s;
+
+	if (as == 0 || av == NuLL)
+		return (NULL);
+
+	for (; i < ac; i++, nc++)
+		nc += _strlen(av[i]);
+
+	s = malloc(sizeof(char) * nc + 1);
+	if (s == 0)
+		return (NULL);
+
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++, cmpt++)
+			s[cmpt] = av[i][j];
+
+		s[cmpt] = '\n';
+		cmpt++;
+	}
+	s[cmpt] = '\0';
+	return (s);
 }
