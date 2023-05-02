@@ -1,13 +1,11 @@
 #include "lists.h"
 
 /**
- * free_listint2 - Entry point
- *
+ * free_listint2 - frees a list of ints
  * @head: address of pointer to first node
  *
- * return: void
+ * Return: void
  */
-
 void free_listint2(listint_t **head)
 {
 	listint_t *node, *teap;
@@ -20,7 +18,7 @@ void free_listint2(listint_t **head)
 	{
 		teap = node;
 		node = node->next;
-		free(t);
+		free(teap);
 	}
 	*head = NULL;
 }
