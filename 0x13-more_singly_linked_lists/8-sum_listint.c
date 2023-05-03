@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * sum_listint - returns smm of all data
- * @head: pointer to  first node
+ * sum_listint - returns sum of all data
+ * @head: pointer to first node
  *
  * Return: sum
  */
-int sm_listint(listinr_t *head)
+int sum_listint(listinr_t *head)
 {
 	int sum = 0;
 
