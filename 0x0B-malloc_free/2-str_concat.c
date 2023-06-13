@@ -1,52 +1,42 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
-int _strl(char *s);
 /**
- *str_concat - concatenates two strings
- *@s1: string1
- *@s2: string2
- *Return: pointer should point to a newly allocated space in memory
- *which contains the contents of s1, followed by the contents of s2,
- *and null terminated, if NULL is passed, treat it as an empty string
- *The function should return NULL on failure
+ * str_concat - get ends of input and add together for size
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
-	int con, lon1, lon2;
-	char *strcon;
+	char *conct;
+	int i, ci;
 
-	if (s1 == 0)
+	if (s1 == NULL)
 		s1 = "";
-	if (s2 == 0)
+	if (s2 == NULL)
 		s2 = "";
 
-	lon1 = _strl(s1);
-	lon2 = _strl(s2);
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
 
-	strcon = malloc(sizeof(char) * (lon1 + lon2 + 1));
-	if (strcon == 0)
+	if (conct == NULL)
 		return (NULL);
+	i = ci = 0;
+	while (s1[i] != '\0')
+	{
+		conct[i] = s1[i];
+		i++;
+	}
 
-	for (con = 0; con < lon1; con++)
-		strcon[con] = s1[con];
-
-	for (; con < lon1 + lon2; con++)
-		strcon[con] = s2[con - lon1];
-	strcon[lon1 + lon2] = '\0';
-
-	return (strcon);
-}
-
-/**
- * _strl - length of a string
- * @s: string
- * Return: length string
- */
-int _strl(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
+	while (s2[ci] != '\0')
+	{
+		conct[i] = s2[ci];
+		i++, ci++;
+	}
+	conct[i] = '\0';
+	return (conct);
 }
