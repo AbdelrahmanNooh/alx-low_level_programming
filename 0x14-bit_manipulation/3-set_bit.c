@@ -1,15 +1,21 @@
 #include "main.h"
+
 /**
- * set_bit - Entry Point
- * @n: input
+ * set_bit - sets the value of a bit to 1 at a given index.
+ *
+ * @n: number
+ *
  * @index: index
- * Return: 0
+ *
+ * Return: 1 if it worked, or -1 if an error occurred
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index > 63)
-		return (-1);
+	unsigned long int set;
 
-	*n = *n | 1ul << index;
+	if (index > (sizeof(unsigned long int) * 8 - 1))
+		return (-1);
+	set = 1 << index;
+	*n = *n | set;
 	return (1);
 }

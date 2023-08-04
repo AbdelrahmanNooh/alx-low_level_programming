@@ -1,32 +1,26 @@
 #include "main.h"
+
 /**
- * binary_to_uint - Entry Point
- * @b: const char
- * Return: 0
+ * binary_to_uint - Entry point
+ *
+ * @b: pointer
+ *
+ * Return: the converted number
  */
+
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int res = 0;
-	int base = 1, i = 0;
+	unsigned int val = 0;
+	int i = 0;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
-
-	while (b[i + 1])
+	while (b[i])
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (b[i] < '0' || b[i] > '1')
 			return (0);
+		val = 2 * val + (b[i] - '0');
 		i++;
 	}
-
-	while (i >= 0)
-	{
-		res += ((b[i] - '0') * base);
-		base *= 2;
-		i--;
-	}
-
-
-	return (res);
-
+	return (val);
 }

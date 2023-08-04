@@ -1,17 +1,23 @@
-#include "main.h"
+#include"main.h"
+
 /**
- * get_bit - Entry Point
- * @n: input
- * @index: index
- * Return: 0
+ * get_bit - returns the value of a bit at a given index.
+ *
+ * @n: number bits
+ *
+ * @index: index number
+ *
+ * Return: value
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int m;
+	unsigned long int divisor, check;
 
-	if (index > 63)
+	if (index > (sizeof(unsigned long int) * 8 - 1))
 		return (-1);
-
-	m = 1 << index;
-	return ((n & m) > 0);
+	divisor = 1 << index;
+	check = n & divisor;
+	if (check == divisor)
+		return (1);
+	return (0);
 }
